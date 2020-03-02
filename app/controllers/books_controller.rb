@@ -6,12 +6,18 @@ class BooksController < ApplicationController
   def show
 		@book = Book.find(params[:id])
 		@user = @book.user
-		@books =Book.new
+		@books = Book.new
+
+		@book_comment = BookComment.new
+		# あっているかも
   end
 
   def index
 		@books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall あれ、これがある、、、ないと思った
 		@book = Book.new
+
+		# @bookn = Book.find(params[:id])
+		# コメント数を表示させるため新たに記載→each文の中だからいらないかも
   end
 
   def create
